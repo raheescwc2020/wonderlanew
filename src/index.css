@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 240 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 50% 10%;
+
+    --primary: 245 70% 28%;
+    --primary-foreground: 48 100% 50%;
+
+    --secondary: 48 100% 50%;
+    --secondary-foreground: 245 70% 28%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 340 85% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 245 70% 28%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom tokens */
+    --wonder-yellow: 48 100% 50%;
+    --wonder-blue: 245 70% 28%;
+    --wonder-pink: 340 85% 55%;
+    --wonder-cyan: 185 80% 50%;
+    --wonder-green: 145 65% 45%;
+    --wonder-orange: 25 95% 55%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(245 70% 28%), hsl(280 60% 35%), hsl(340 85% 55%));
+    --gradient-cta: linear-gradient(135deg, hsl(48 100% 50%), hsl(35 100% 55%));
+    --gradient-card: linear-gradient(180deg, hsla(0 0% 0% / 0), hsla(0 0% 0% / 0.7));
+
+    --font-display: 'Baloo 2', cursive;
+    --font-body: 'Nunito', sans-serif;
+
+    --shadow-card: 0 8px 30px -8px hsla(245 70% 28% / 0.15);
+    --shadow-card-hover: 0 16px 40px -8px hsla(245 70% 28% / 0.25);
+    --shadow-cta: 0 6px 20px -4px hsla(48 100% 50% / 0.5);
+  }
+
+  .dark {
+    --background: 240 30% 8%;
+    --foreground: 0 0% 95%;
+    --card: 240 25% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 240 25% 12%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 48 100% 50%;
+    --primary-foreground: 245 70% 28%;
+    --secondary: 245 50% 40%;
+    --secondary-foreground: 48 100% 50%;
+    --muted: 240 20% 18%;
+    --muted-foreground: 220 15% 60%;
+    --accent: 340 85% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 240 20% 20%;
+    --input: 240 20% 20%;
+    --ring: 48 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .btn-cta {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 font-bold text-lg transition-all duration-300;
+    background: var(--gradient-cta);
+    color: hsl(var(--wonder-blue));
+    box-shadow: var(--shadow-cta);
+  }
+  .btn-cta:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 30px -4px hsla(48 100% 50% / 0.6);
+  }
+
+  .card-wonder {
+    @apply rounded-2xl overflow-hidden transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+  .card-wonder:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .floating-nav {
+    @apply fixed top-0 left-0 right-0 z-50 transition-all duration-300;
+    backdrop-filter: blur(20px);
+    background: hsla(var(--background) / 0.85);
+  }
+  .floating-nav.scrolled {
+    box-shadow: 0 4px 20px hsla(0 0% 0% / 0.1);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
